@@ -6,6 +6,13 @@ namespace Stateless.App.ConsoleApp.StateMachines.Water
 {
     public sealed class Water
     {
+        const double SolidMinTemp = double.MinValue;
+        const double SolidMaxTemp = -1;
+        const double LiquidMinTemp = 0;
+        const double LiquidMaxTemp = 100;
+        const double GasMinTemp = 101;
+        const double GasMaxTemp = double.MaxValue;
+
         private StateMachine<WaterState, WaterTrigger> _machine;
 
         public Water()
