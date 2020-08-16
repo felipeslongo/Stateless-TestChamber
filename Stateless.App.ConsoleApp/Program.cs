@@ -13,12 +13,22 @@ namespace Stateless.App.ConsoleApp
             //var interactive = new InteractiveStateMachineConsole<WaterState, WaterTrigger>(new Water().StateMachine);
             //interactive.InteractAsync().Wait();
 
-            var water = new Water();
-            await water.LoremIpsumAsync();
-            Console.WriteLine(water.ToDotGraph());
+            await WaterAsync();
 
             Console.WriteLine("Press any key...");
             Console.ReadKey(true);
+        }
+
+        static async Task WaterAsync()
+        {
+            var water = new Water();
+            await water.VaporizeAsync();
+            await water.DepositionAsync();
+            await water.MeltAsync();
+            await water.FreezeAsync();
+            await water.SublimateAsync();
+            await water.CondensateAsync();
+            Console.WriteLine(water.ToDotGraph());
         }
     }
 }

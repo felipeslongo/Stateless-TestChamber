@@ -53,16 +53,6 @@ namespace Stateless.App.ConsoleApp.StateMachines.Water
             return UmlDotGraph.Format(_machine.GetInfo());
         }
 
-        public async Task LoremIpsumAsync()
-        {
-            await VaporizeAsync();
-            await DepositionAsync();
-            await MeltAsync();
-            await FreezeAsync();
-            await SublimateAsync();
-            await CondensateAsync();
-        }
-
         public async Task VaporizeAsync()
         {
             await _machine.FireAsync(WaterTrigger.OnVaporized);
